@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="petsDb">
+  <database-model serializer="dbm" dbms="DERBY" family-id="DERBY" format-version="4.15">
+    <root id="1">
+      <ServerVersion>10.14.1.0</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="APP"/>
+    <schema id="3" parent="1" name="ERIC">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="1" name="NULLID"/>
+    <schema id="5" parent="1" name="SQLJ"/>
+    <schema id="6" parent="1" name="SYS"/>
+    <schema id="7" parent="1" name="SYSCAT"/>
+    <schema id="8" parent="1" name="SYSCS_DIAG"/>
+    <schema id="9" parent="1" name="SYSCS_UTIL"/>
+    <schema id="10" parent="1" name="SYSFUN"/>
+    <schema id="11" parent="1" name="SYSIBM"/>
+    <schema id="12" parent="1" name="SYSPROC"/>
+    <schema id="13" parent="1" name="SYSSTAT"/>
+    <table id="14" parent="3" name="PET"/>
+    <table id="15" parent="3" name="PET_DETAIL"/>
+    <table id="16" parent="3" name="SPECIES"/>
+    <column id="17" parent="14" name="PED_ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>AUTOINCREMENT: start 1 increment 1</DefaultExpression>
+    </column>
+    <column id="18" parent="14" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(75)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="14" name="AGE">
+      <Position>3</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="14" name="SPECIES">
+      <Position>4</Position>
+      <DataType>VARCHAR(50)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="21" parent="14" name="SQL200129010230930">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>PED_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="22" parent="14" name="SQL200129010943180">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>SPECIES</ColNames>
+    </index>
+    <key id="23" parent="14" name="PET_PK">
+      <ColNames>PED_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="24" parent="14" name="PET_SPECIES_SPECIES_NAME_FK">
+      <ColNames>SPECIES</ColNames>
+      <RefTableName>SPECIES</RefTableName>
+      <RefKeyName>SPECIES_PK</RefKeyName>
+      <RefColNames>SPECIES_NAME</RefColNames>
+    </foreign-key>
+    <column id="25" parent="15" name="PET_ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+    </column>
+    <column id="26" parent="15" name="FAVORITE_TOY">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)|12s</DataType>
+    </column>
+    <column id="27" parent="15" name="WEIGHT">
+      <Position>3</Position>
+      <DataType>INTEGER|4s</DataType>
+    </column>
+    <column id="28" parent="15" name="NICKNAME">
+      <Position>4</Position>
+      <DataType>VARCHAR(100)|12s</DataType>
+    </column>
+    <index id="29" parent="15" name="SQL200129011818150">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>PET_ID</ColNames>
+    </index>
+    <foreign-key id="30" parent="15" name="PET_DETAIL_PET_PED_ID_FK">
+      <ColNames>PET_ID</ColNames>
+      <RefTableName>PET</RefTableName>
+      <RefKeyName>PET_PK</RefKeyName>
+      <RefColNames>PED_ID</RefColNames>
+    </foreign-key>
+    <column id="31" parent="16" name="SPECIES_NAME">
+      <Position>1</Position>
+      <DataType>VARCHAR(50)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="32" parent="16" name="SQL200129010637600">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>SPECIES_NAME</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="33" parent="16" name="SPECIES_PK">
+      <ColNames>SPECIES_NAME</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
